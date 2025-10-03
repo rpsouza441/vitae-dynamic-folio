@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useMemo } from 'react';
 import { useContent } from '@/hooks/useContent';
 import { Header } from '@/components/Header';
 import { ContactSection } from '@/components/sections/ContactSection';
@@ -7,6 +7,7 @@ import { ExperienceSection } from '@/components/sections/ExperienceSection';
 import { SkillsSection } from '@/components/sections/SkillsSection';
 import { EducationSection } from '@/components/sections/EducationSection';
 import { CertificationsSection } from '@/components/sections/CertificationsSection';
+import { TrainingsSection } from '@/components/sections/TrainingsSection';
 
 const Index = () => {
   const { content, loading, error } = useContent();
@@ -50,11 +51,23 @@ const Index = () => {
     );
   }
 
-  const sections = content.order || ['contact', 'summary', 'experience', 'skills', 'education', 'certifications'];
+  // Filter sections based on available content
+  const availableSections = useMemo(() => {
+    const baseOrder = content.order || ['contact', 'summary', 'experience', 'skills', 'education', 'certifications', 'trainings'];
+    return baseOrder.filter(section => {
+      if (section === 'certifications' && (!content.certifications || content.certifications.length === 0)) {
+        return false;
+      }
+      if (section === 'trainings' && (!content.trainings || content.trainings.length === 0)) {
+        return false;
+      }
+      return true;
+    });
+  }, [content]);
 
   return (
     <>
-      <Header sections={sections} />
+      <Header sections={availableSections} />
       
       <main id="main">
         <ContactSection profile={content.profile} />
@@ -62,7 +75,12 @@ const Index = () => {
         <ExperienceSection experiences={content.experience} />
         <SkillsSection skills={content.skills} />
         <EducationSection education={content.education} />
-        <CertificationsSection certifications={content.certifications} />
+        {content.certifications && content.certifications.length > 0 && (
+          <CertificationsSection certifications={content.certifications} />
+        )}
+        {content.trainings && content.trainings.length > 0 && (
+          <TrainingsSection trainings={content.trainings} />
+        )}
       </main>
 
       <footer className="bg-card border-t border-border py-8">

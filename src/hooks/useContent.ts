@@ -40,6 +40,13 @@ export interface Certification {
   id?: string;
 }
 
+export interface Training {
+  name: string;
+  issuer: string;
+  year: string;
+  id?: string;
+}
+
 export interface ContentData {
   meta: {
     title: string;
@@ -58,6 +65,7 @@ export interface ContentData {
   skills: Record<string, string[]>;
   education: Education[];
   certifications: Certification[];
+  trainings: Training[];
 }
 
 const BASE_PATH = import.meta.env.BASE_URL || '/';
