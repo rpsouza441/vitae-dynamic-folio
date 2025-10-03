@@ -7,6 +7,7 @@ import { ExperienceSection } from '@/components/sections/ExperienceSection';
 import { SkillsSection } from '@/components/sections/SkillsSection';
 import { EducationSection } from '@/components/sections/EducationSection';
 import { CertificationsSection } from '@/components/sections/CertificationsSection';
+import { TrainingsSection } from '@/components/sections/TrainingsSection';
 
 const Index = () => {
   const { content, loading, error } = useContent();
@@ -50,19 +51,39 @@ const Index = () => {
     );
   }
 
-  const sections = content.order || ['contact', 'summary', 'experience', 'skills', 'education', 'certifications'];
+  const allSections = content.order || [];
+  const renderedSections = allSections.filter(sectionId => {
+    switch (sectionId) {
+      case 'certifications':
+        return content.certifications && content.certifications.length > 0;
+      case 'trainings':
+        return content.trainings && content.trainings.length > 0;
+      case 'experience':
+        return content.experience && content.experience.length > 0;
+      case 'skills':
+        return content.skills && Object.keys(content.skills).length > 0;
+      case 'education':
+        return content.education && content.education.length > 0;
+      case 'summary':
+        return !!content.summary;
+      default:
+        return true;
+    }
+  });
+
 
   return (
     <>
-      <Header sections={sections} />
+      <Header sections={renderedSections} />
       
       <main id="main">
         <ContactSection profile={content.profile} />
         <SummarySection summary={content.summary} />
         <ExperienceSection experiences={content.experience} />
         <SkillsSection skills={content.skills} />
-        <EducationSection education={content.education} />
-        <CertificationsSection certifications={content.certifications} />
+        <EducationSection education={content.education} title={content.ui.nav.education} />
+        <CertificationsSection certifications={content.certifications} title={content.ui.nav.certifications} />
+        <TrainingsSection trainings={content.trainings} title={content.ui.nav.trainings} />
       </main>
 
       <footer className="bg-card border-t border-border py-8">

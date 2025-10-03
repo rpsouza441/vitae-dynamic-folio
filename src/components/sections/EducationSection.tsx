@@ -7,9 +7,10 @@ import { Card } from '@/components/ui/card';
 
 interface EducationSectionProps {
   education: Education[];
+  title: string;
 }
 
-export function EducationSection({ education }: EducationSectionProps) {
+export function EducationSection({ education, title }: EducationSectionProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
@@ -22,7 +23,7 @@ export function EducationSection({ education }: EducationSectionProps) {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5 }}
         >
-          Formação Acadêmica
+          {title}
         </motion.h2>
 
         <div className="space-y-6">

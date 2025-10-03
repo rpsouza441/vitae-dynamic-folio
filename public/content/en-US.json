@@ -24,14 +24,15 @@
       "experience": "Experience",
       "skills": "Skills",
       "education": "Education",
-      "certifications": "Certifications"
+      "certifications": "Certifications",
+      "trainings": "Courses & Training"
     },
     "actions": {
       "toggle_theme": "Toggle theme",
       "toggle_lang": "Toggle language"
     }
   },
-  "order": ["contact", "summary", "experience", "skills", "education", "certifications"],
+  "order": ["contact", "summary", "experience", "skills", "education", "certifications", "trainings"],
   "summary": "Full Stack Developer with **5+ years of experience** building scalable and performant solutions. Specialized in **React, TypeScript, Node.js** and cloud-native architectures. Focused on delivering **measurable results** and technical excellence.",
   "experience": [
     {
@@ -86,6 +87,18 @@
       "issuer": "Scrum.org",
       "year": "2022",
       "id": "PSM-I-2022-5678"
+    }
+  ],
+  "trainings": [
+    {
+      "name": "Terraform - From Basic to Advanced",
+      "issuer": "Udemy",
+      "year": "2024"
+    },
+    {
+      "name": "Kubernetes for Developers",
+      "issuer": "Udemy",
+      "year": "2023"
     }
   ]
 }

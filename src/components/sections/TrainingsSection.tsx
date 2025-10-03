@@ -1,26 +1,25 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Award } from 'lucide-react';
-import { Certification } from '@/hooks/useContent';
+import { School } from 'lucide-react';
+import { Training } from '@/hooks/useContent';
 import { Card } from '@/components/ui/card';
 
-interface CertificationsSectionProps {
-  certifications: Certification[];
+interface TrainingsSectionProps {
+  trainings: Training[];
   title: string;
 }
 
-export function CertificationsSection({ certifications, title }: CertificationsSectionProps) {
+export function TrainingsSection({ trainings, title }: TrainingsSectionProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
-  // Adicione esta verificação aqui
-  if (!certifications || certifications.length === 0) {
+  if (!trainings || trainings.length === 0) {
     return null;
   }
 
   return (
-    <section id="certifications" className="py-20 gradient-section" ref={ref}>
+    <section id="trainings" className="py-20 bg-background" ref={ref}>
       <div className="container mx-auto px-4 max-w-4xl">
         <motion.h2
           className="text-3xl md:text-4xl font-bold mb-12 text-foreground"
@@ -32,7 +31,7 @@ export function CertificationsSection({ certifications, title }: CertificationsS
         </motion.h2>
 
         <div className="grid md:grid-cols-2 gap-6">
-          {certifications.map((cert, index) => (
+          {trainings.map((training, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, scale: 0.9 }}
@@ -42,15 +41,15 @@ export function CertificationsSection({ certifications, title }: CertificationsS
               <Card className="p-6 hover:shadow-lg transition-shadow h-full">
                 <div className="flex items-start gap-4">
                   <div className="p-3 bg-accent/10 rounded-lg">
-                    <Award className="w-6 h-6 text-accent" />
+                    <School className="w-6 h-6 text-accent" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-lg font-bold text-foreground">{cert.name}</h3>
-                    <p className="text-primary font-semibold">{cert.issuer}</p>
-                    <p className="text-sm text-muted-foreground mt-1">{cert.year}</p>
-                    {cert.id && (
+                    <h3 className="text-lg font-bold text-foreground">{training.name}</h3>
+                    <p className="text-primary font-semibold">{training.issuer}</p>
+                    <p className="text-sm text-muted-foreground mt-1">{training.year}</p>
+                    {training.id && (
                       <p className="text-xs text-muted-foreground mt-2">
-                        ID: {cert.id}
+                        ID: {training.id}
                       </p>
                     )}
                   </div>
