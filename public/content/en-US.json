@@ -1,0 +1,91 @@
+{
+  "meta": {
+    "title": "Your Name — Resume",
+    "description": "Summary, experience, skills, education and certifications.",
+    "locale": "en-US",
+    "robots": "noindex,nofollow"
+  },
+  "profile": {
+    "name": "Your Name",
+    "role": "Full Stack Developer",
+    "photo": "/content/assets/photo.jpg",
+    "location": "São Paulo, Brazil",
+    "contacts": {
+      "email": "you@email.com",
+      "linkedin": "https://linkedin.com/in/youruser",
+      "github": "https://github.com/youruser",
+      "website": ""
+    }
+  },
+  "ui": {
+    "nav": {
+      "contact": "Contact",
+      "summary": "Summary",
+      "experience": "Experience",
+      "skills": "Skills",
+      "education": "Education",
+      "certifications": "Certifications"
+    },
+    "actions": {
+      "toggle_theme": "Toggle theme",
+      "toggle_lang": "Toggle language"
+    }
+  },
+  "order": ["contact", "summary", "experience", "skills", "education", "certifications"],
+  "summary": "Full Stack Developer with **5+ years of experience** building scalable and performant solutions. Specialized in **React, TypeScript, Node.js** and cloud-native architectures. Focused on delivering **measurable results** and technical excellence.",
+  "experience": [
+    {
+      "company": "Tech Corp",
+      "role": "Senior Full Stack Developer",
+      "start": "2022-03",
+      "end": "current",
+      "location": "Remote",
+      "highlights": [
+        "Led microservices migration, reducing deploy time by 60%",
+        "Implemented serverless architecture saving $50k/year in infrastructure",
+        "Mentored 5 junior developers with 100% retention rate"
+      ],
+      "body_md": "**Main technologies:**\n- React 18 + TypeScript\n- Node.js + NestJS\n- AWS (Lambda, ECS, RDS)\n- PostgreSQL + Redis"
+    },
+    {
+      "company": "Startup XYZ",
+      "role": "Full Stack Developer",
+      "start": "2019-06",
+      "end": "2022-02",
+      "location": "São Paulo, Brazil",
+      "highlights": [
+        "Developed MVP in 3 months generating $100k ARR in first year",
+        "Optimized frontend performance increasing Lighthouse score from 45 to 95"
+      ]
+    }
+  ],
+  "skills": {
+    "Frontend": ["React", "TypeScript", "Next.js", "Tailwind CSS", "Framer Motion"],
+    "Backend": ["Node.js", "NestJS", "Python", "REST APIs", "GraphQL"],
+    "DevOps": ["Docker", "Kubernetes", "AWS", "CI/CD", "Terraform"],
+    "Database": ["PostgreSQL", "MongoDB", "Redis", "Supabase"],
+    "Tools": ["Git", "VS Code", "Figma", "Linear"]
+  },
+  "education": [
+    {
+      "institution": "University of São Paulo",
+      "degree": "Bachelor in Computer Science",
+      "start": "2015",
+      "end": "2019"
+    }
+  ],
+  "certifications": [
+    {
+      "name": "AWS Certified Solutions Architect",
+      "issuer": "Amazon Web Services",
+      "year": "2023",
+      "id": "AWS-SA-2023-001234"
+    },
+    {
+      "name": "Professional Scrum Master I",
+      "issuer": "Scrum.org",
+      "year": "2022",
+      "id": "PSM-I-2022-5678"
+    }
+  ]
+}

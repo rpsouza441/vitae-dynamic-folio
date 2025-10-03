@@ -1,0 +1,15 @@
+services:
+  vitae:
+    build:
+      context: .
+      args:
+        BASE_PATH: ${BASE_PATH:-/}
+    image: vitae-site:latest
+    container_name: vitae
+    environment:
+      - BASE_PATH=${BASE_PATH:-/}
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./public/content:/usr/share/nginx/html/content:ro
+    restart: unless-stopped
